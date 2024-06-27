@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>User Settings - Financial App</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+     
+      h1 {
+        font-size: 2em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+     
+      fieldset {
+        border: 1px solid #ccc;
+        padding: 1em;
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
+     
+      label {
+        display: block;
+        margin-bottom: 0.5em;
+      }
+     
+      input[type="submit"] {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 0.5em 1em;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1em;
+        border-radius: 5px;
+      }
+     
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+     
+      .success {
+        background-color: #dff0d8;
+        border: 1px solid #d6e9c6;
+        color: #3c763d;
+        padding: 1em;
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
+     
+      .error {
+        background-color: #f2dede;
+        border: 1px solid #ebccd1;
+        color: #a94442;
+        padding: 1em;
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="post">
+        <h1>User Settings</h1>
+      <fieldset>
+        <legend>Personal Information</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+      </fieldset>
+      <fieldset>
+           
+        <legend>Security settings</legend>
+        <label for="password">New Password:</label>
+        <input type="password" id="password" name="password">
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password">
+        <label for="security-question">Security Question:</label>
+         
+        </fieldset>
+        <select id="security-question" name="security-question" required>
+          <option value="">-- Select a security question --</option>
+          <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+          <option value="What is the name of your first pet?">What is the name of your first pet?</option>
+          <option value="What city were you born in?">What city were you born in?</option>
+          <option value="What is your favorite color?">What is your favorite color?</option>
+        </select>
+        <label for="security-answer">Security Answer:</label>
+        <input type="text" id="security-answer" name="security-answer" required>
+     
+      <input type="submit" value="Save Changes">
+    </form>
+      <style>
+        form {
+  margin: 0 auto; /* centers the form horizontally */
+  max-width: 500px;
+  padding: 20px;
+  border: 2px solid #eee;
+  border-radius: 5px;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+legend {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  background-color: #008CBA;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: #006B9F;
+}
+
+/* error message styling */
+input:invalid {
+  border-color: #f00;
+}
+
+input:invalid + span:before {
+  content: "⚠ ";
+  color: #f00;
+}
+
+input:valid + span:before {
+  content: "✓ ";
+  color: green;
+}
+ 
+
+</style>
+
+
+<Script>
+function validateForm() {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirm-password').value;
+  const securityQuestion = document.getElementById('security-question').value;
+  const securityAnswer = document.getElementById('security-answer').value;
+
+  // Check if all required fields are filled
+  if (name === '' || email === '' || phone === '' || password === ''
+      || confirmPassword === '' || securityQuestion === '' || securityAnswer === '') {
+    alert('Please fill all the fields');
+    return false;
+  }
+
+  // Check if passwords match
+  if (password !== confirmPassword) {
+    alert('Passwords do not match');
+    return false;
+  }
+
+  return true;
+}
+
+// Add an event listener to the form submit button
+const submitButton = document.querySelector('input[type="submit"]');
+submitButton.addEventListener('click', (event) => {
+  if (!validateForm()) {
+    event.preventDefault();
+  }
+});
+
+<script> 
+  </body>
+</html>
+
+}{}
